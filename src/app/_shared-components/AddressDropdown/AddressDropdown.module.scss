@@ -1,0 +1,11 @@
+.dropdownOption {
+	@apply flex w-full items-center gap-x-2;
+}
+
+.dropdownOptionText {
+	@apply text-sm text-text_primary text-opacity-60;
+}
+
+.fallbackText {
+	@apply text-center text-text_primary;
+}

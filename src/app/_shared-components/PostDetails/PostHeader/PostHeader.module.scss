@@ -1,0 +1,44 @@
+.postTitle {
+	@apply mb-2 text-xl font-semibold text-text_primary;
+}
+
+.requestedWrapper {
+	@apply mb-2 flex flex-col items-start gap-2 lg:flex-row lg:items-center;
+}
+
+.requestedText {
+	@apply text-base text-listing_page_btn lg:text-lg;
+}
+
+.requestedAmount {
+	@apply flex flex-wrap items-center gap-x-1 text-base font-semibold text-text_pink lg:text-lg;
+}
+
+.proposerWrapper {
+	@apply flex flex-col flex-wrap gap-2 lg:flex-row lg:items-center;
+}
+
+.beneficiaryWrapper {
+	@apply flex flex-wrap items-center gap-x-2 gap-y-2;
+}
+
+.beneficiaryText {
+	@apply text-xs text-wallet_btn_text;
+}
+
+.beneficiaryTooltipContent {
+	@apply flex max-h-[300px] flex-col gap-y-2 overflow-y-auto bg-bg_modal shadow-lg;
+}
+
+.originStyle {
+	@apply whitespace-normal break-words rounded-md px-1.5 py-1 text-[10px] lg:text-xs;
+}
+
+.hideScrollbar {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+	&::-webkit-scrollbar {
+		/* Chrome, Safari and Opera */
+		display: none;
+	}
+}

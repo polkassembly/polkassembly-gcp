@@ -1,0 +1,51 @@
+.container {
+	@apply mx-auto max-w-7xl bg-section_dark_overlay px-4 pt-8 lg:px-16;
+}
+
+.header {
+	@apply flex items-center justify-between gap-5 md:gap-0;
+}
+
+.title {
+	@apply text-lg font-bold text-btn_secondary_text lg:text-2xl;
+}
+
+.subtitle {
+	@apply pt-5 text-sm text-gray-600;
+}
+
+.button {
+	@apply hidden items-center gap-1.5 rounded-full bg-btn_primary_background px-3 py-1.5 text-white shadow lg:flex lg:px-6 lg:py-2;
+}
+
+.tabs {
+	@apply mt-5 flex justify-between;
+}
+
+.tab-button {
+	@apply px-4 py-3 text-sm font-medium text-wallet_btn_text;
+}
+
+.tab-button-active {
+	@apply border-b-2 border-text_pink font-semibold text-text_pink;
+}
+
+.filter {
+	@apply mb-1 flex cursor-pointer items-center gap-1 rounded-lg px-3 py-2 hover:bg-gray-200;
+}
+
+.content {
+	@apply mx-auto min-h-[600px] max-w-7xl bg-page_background px-4 py-5 lg:px-16;
+}
+
+.popoverContent {
+	@apply w-56 border border-primary_border bg-[var(--sidebar-primary-foreground)] p-2;
+}
+
+.selectedicon {
+	filter: 'brightness(0) saturate(100%) invert(13%) sepia(94%) saturate(7151%) hue-rotate(321deg) brightness(90%) contrast(101%)';
+}
+
+.searchbar {
+	@apply w-full rounded border border-primary_border bg-search_bg bg-opacity-[20%] px-2 py-1 pr-10 text-filter_dropdown;
+}
