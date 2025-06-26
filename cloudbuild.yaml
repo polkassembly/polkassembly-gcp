@@ -1,0 +1,38 @@
+# cloudbuild.yaml
+
+steps:
+# 1. Build the Docker image.
+# We are now securely passing the Firebase service account config as a "build-arg".
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+    - 'build'
+    - '--tag=gcr.io/$PROJECT_ID/my-app:$COMMIT_SHA'
+    # The --build-arg flag makes the secret available to the Dockerfile during the build.
+    - '--build-arg'
+    - 'FIREBASE_SERVICE_ACC_CONFIG=${_FIREBASE_CONFIG}'
+    - '.'
+  # This 'secretEnv' block makes the secret's value available as an environment variable
+  # named _FIREBASE_CONFIG, but ONLY for this build step.
+  secretEnv: ['_FIREBASE_CONFIG']
+
+# 2. Push the built image to Google Container Registry (GCR).
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/my-app:$COMMIT_SHA']
+
+# 3. (Optional) Make the image name available to subsequent build steps.
+images:
+- 'gcr.io/$PROJECT_ID/my-app:$COMMIT_SHA'
+
+# 4. Specify the logging option.
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+# 5. Define the secret to be used by this build.
+availableSecrets:
+  secretManager:
+  # This tells Cloud Build to fetch the latest version of your secret.
+  # !!! IMPORTANT !!!
+  # Replace 'your-firebase-secret-name' with the name of the secret you created in Step 1.
+  - versionName: projects/$PROJECT_ID/secrets/firebase-service-account/versions/latest
+    # This maps the secret's value to the environment variable '_FIREBASE_CONFIG'
+    env: '_FIREBASE_CONFIG'
