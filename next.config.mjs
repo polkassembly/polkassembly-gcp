@@ -10,6 +10,7 @@ const withNextIntl = createNextIntlPlugin('./src/intl/intlRequest.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+	output: 'standalone',
 	async headers() {
 		return [
 			{
