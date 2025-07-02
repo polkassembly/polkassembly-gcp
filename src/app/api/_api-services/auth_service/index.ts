@@ -37,8 +37,11 @@ if (!ACCESS_TOKEN_PRIVATE_KEY || !ACCESS_TOKEN_PUBLIC_KEY || !ACCESS_TOKEN_PASSP
 		StatusCodes.INTERNAL_SERVER_ERROR,
 		'ACCESS_TOKEN_PRIVATE_KEY, ACCESS_TOKEN_PUBLIC_KEY or ACCESS_TOKEN_PASSPHRASE not set. Aborting.'
 	);
+} else {
+	// This block will run only if the keys are NOT empty.
+	console.log('✅ Access token environment variables loaded successfully.');
+	// You can add any other logic you need here.
 }
-
 if (!REFRESH_TOKEN_PRIVATE_KEY || !REFRESH_TOKEN_PUBLIC_KEY || !REFRESH_TOKEN_PASSPHRASE) {
 	throw new APIError(ERROR_CODES.INTERNAL_SERVER_ERROR, StatusCodes.INTERNAL_SERVER_ERROR, 'REFRESH_TOKEN_PRIVATE_KEY or REFRESH_TOKEN_PASSPHRASE not set. Aborting.');
 }
