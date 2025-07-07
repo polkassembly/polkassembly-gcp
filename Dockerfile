@@ -68,7 +68,7 @@ COPY --from=builder /app/public ./public
 # 9. Set production environment variables
 ENV NODE_ENV=production
 ENV PORT=8080
-ENV HOST=0.0.0.0
+ENV HOST=test.polkassembly.io
 
 # NOTE: The secrets are NOT included in this final production image.
 # They are injected at runtime by Cloud Run.
