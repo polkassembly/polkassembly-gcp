@@ -1,4 +1,4 @@
-# 1. Base image for the builder stage
+# 1. Base image for the builder 
 FROM node:22-alpine AS builder
 
 WORKDIR /app
