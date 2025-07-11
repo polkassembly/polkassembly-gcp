@@ -209,6 +209,8 @@ export class AuthService {
 			loginWallet
 		};
 
+		console.log('REFRESH_TOKEN_PRIVATE_KEY', REFRESH_TOKEN_PRIVATE_KEY);
+
 		const refreshToken = jwt.sign(
 			tokenContent,
 			{ key: REFRESH_TOKEN_PRIVATE_KEY, passphrase: REFRESH_TOKEN_PASSPHRASE },
