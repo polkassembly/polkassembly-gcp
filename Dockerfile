@@ -1,4 +1,4 @@
-# 1. Base image for the builder 
+# 1. Base image for the builder comment
 FROM node:22-alpine AS builder
 
 WORKDIR /app
