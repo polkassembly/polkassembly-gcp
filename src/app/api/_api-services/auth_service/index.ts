@@ -209,7 +209,12 @@ export class AuthService {
 			loginWallet
 		};
 
-		console.log('REFRESH_TOKEN_PRIVATE_KEY', REFRESH_TOKEN_PRIVATE_KEY);
+		// Debug: Check if the entire key is loaded
+		console.log('REFRESH_TOKEN_PRIVATE_KEY length:', REFRESH_TOKEN_PRIVATE_KEY.length);
+		console.log('REFRESH_TOKEN_PRIVATE_KEY starts with:', REFRESH_TOKEN_PRIVATE_KEY.substring(0, 50));
+		console.log('REFRESH_TOKEN_PRIVATE_KEY ends with:', REFRESH_TOKEN_PRIVATE_KEY.substring(REFRESH_TOKEN_PRIVATE_KEY.length - 50));
+		console.log('REFRESH_TOKEN_PRIVATE_KEY line count:', REFRESH_TOKEN_PRIVATE_KEY.split('\n').length);
+		console.log('REFRESH_TOKEN_PRIVATE_KEY contains newlines:', REFRESH_TOKEN_PRIVATE_KEY.includes('\n'));
 
 		const refreshToken = jwt.sign(
 			tokenContent,
